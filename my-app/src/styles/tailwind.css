@@ -1,0 +1,179 @@
+/* === Google Font (Backup) === */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* 🎨 Core Color Palette */
+    --color-background: #071428; /* Deep Navy */
+    --color-foreground: #E8F0F2; /* Light Text for Dark BG */
+    --color-border: #13233A; 
+    --color-input: #0D1C33; 
+    --color-ring: #46B087; /* Accent Green */
+
+    /* Cards & Popovers */
+    --color-card: #0C1A2E;
+    --color-card-foreground: #E8F0F2;
+    --color-popover: #0C1A2E;
+    --color-popover-foreground: #E8F0F2;
+
+    /* Muted & Neutral Shades */
+    --color-muted: #0D1D32;
+    --color-muted-foreground: #7B8FA3;
+
+    /* Brand / Accent Colors */
+    --color-primary: #46B087; /* Green Accent */
+    --color-primary-foreground: #FFFFFF;
+    --color-secondary: #13233A;
+    --color-secondary-foreground: #E8F0F2;
+    --color-accent: #46B087;
+    --color-accent-foreground: #FFFFFF;
+
+    /* Status Colors */
+    --color-success: #46B087;
+    --color-warning: #FBBF24;
+    --color-error: #EF4444;
+
+    /* 🧩 Typography */
+    --font-sans: 'Book Antiqua', 'Inter', serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 0.75rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+    --spacing-3xl: 4rem;
+    --spacing-4xl: 6rem;
+
+    /* Shadow */
+    --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.4);
+    --shadow-glow: 0 0 15px rgba(70, 176, 135, 0.25);
+  }
+
+  /* === Global Base Styles === */
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    @apply font-sans antialiased;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans font-semibold tracking-tight;
+    color: var(--color-primary);
+  }
+
+  a {
+    color: var(--color-accent);
+    transition: color 0.3s ease;
+  }
+
+  a:hover {
+    color: #63C9A3;
+  }
+
+  code {
+    @apply font-mono text-sm;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-accent-foreground);
+  }
+
+  /* Scrollbar Styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-background);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-accent);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #63C9A3;
+  }
+}
+
+@layer components {
+  /* Animations */
+  .animate-fade-in { animation: fadeIn 0.6s ease-out; }
+  .animate-slide-up { animation: slideUp 0.6s ease-out; }
+
+  /* Accent Button */
+  .btn-accent {
+    @apply px-5 py-2 font-medium transition-all duration-300 rounded-lg;
+    background-color: var(--color-accent);
+    color: var(--color-accent-foreground);
+    box-shadow: var(--shadow-glow);
+  }
+  .btn-accent:hover {
+    background-color: #63C9A3;
+    transform: scale(1.03);
+  }
+
+  /* Card */
+  .card {
+    background-color: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+  }
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(70, 176, 135, 0.25);
+  }
+
+  /* Gradient Accent */
+  .gradient-accent {
+    background: linear-gradient(135deg, #46B087 0%, #0D1C33 100%);
+  }
+
+  /* Glow Text */
+  .text-glow {
+    text-shadow: 0 0 10px rgba(70, 176, 135, 0.5);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; 
+}
+
+
+::-webkit-scrollbar {
+  display: none; 
+}
+
+* {
+  -ms-overflow-style: none;  
+  scrollbar-width: none;     
+}
